@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" lang="en">
+        <title>MailJS test</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <style media="screen">
+            .sidebar-container {
+                position: absolute;
+                vertical-align: middle;
+                width: 100vw;
+                height: 100%;
+                background-color: #e16151;
+                transition: width 2.5s;
+                transition-timing-function: ease;
+            }
+            .loaded .sidebar-container {
+                width: 13vw;
+            }
+            .sidebar img {
+                border-radius: 99999px;
+                display: block;
+                margin: auto;
+                width: 15vw;
+                height: 15vw;
+                transition: height 2s, width 2s, margin-top 2s;
+                margin-top: 15vh;
+            }
+            .loaded .sidebar img {
+                width: 5vw;
+                height: 5vw;
+                margin-top: 3vh;
+            }
+            .content {
+                overflow-x: hidden;
+                margin-left: 14vw;
+            }
+            html, body {
+                height: 100%;
+                padding: 0;
+                margin: 0;
+            }
+        </style>
+        <script type="text/javascript">
+            setTimeout(function functionName() {
+                document.getElementsByTagName('body')[0].className+=' loaded';
+            }, 1500);
+        </script>
+    </head>
+    <body>
+        <div class="sidebar-container">
+            <div class="sidebar">
+                <img src="http://placekitten.com/150/150" alt="Placeholder" />
+            </div>
+        </div>
+        <div class="content">
+            Hello
+        </div>
+    </body>
+</html>
