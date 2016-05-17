@@ -1,0 +1,156 @@
+@import "variables.less";
+@import "transitions.less";
+
+/***************
+    Buttons
+***************/
+
+.button {
+    position: relative;
+    vertical-align: top;
+    width: 100%;
+    height: 35px;
+    padding: 0;
+    font-size: 18px;
+    color: @white;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    background: @red;
+    border: 0;
+    border-bottom: 2px solid @red-dark;
+    cursor: pointer;
+    -webkit-box-shadow: inset 0 -2px @red-dark;
+    box-shadow: inset 0 -2px @red-dark;
+}
+
+.button:active {
+    top: 1px;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.button-lg {
+    height: 45px;
+    font-size: 24px;
+}
+
+.button-blue {
+    background: @blue;
+    border-bottom: 2px solid @blue-dark;
+    -webkit-box-shadow: inset 0 -2px @blue-dark;
+    box-shadow: inset 0 -2px @blue-dark;
+}
+
+.button-green {
+    background: @green;
+    border-bottom: 2px solid @green-dark;
+    -webkit-box-shadow: inset 0 -2px @green-dark;
+    box-shadow: inset 0 -2px @green-dark;
+}
+
+/***************
+    Text input
+***************/
+
+.text-input {
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+    padding-left: 5px;
+	max-width: 400px;
+	width: calc(100% - 2em);
+	vertical-align: top;
+    overflow: hidden;
+    font-size: 18px;
+}
+
+.text-input-field {
+	position: relative;
+	display: block;
+	float: right;
+	padding: 0.85em 0.15em;
+	width: 100%;
+	border: none;
+	border-radius: 0;
+	background: transparent;
+	color: @grey-dark;
+	font-weight: bold;
+	-webkit-appearance: none;
+	margin-top: 1em;
+}
+
+.text-input-field:focus {
+	outline: none;
+}
+
+.text-input-label {
+	display: inline-block;
+	float: right;
+	padding: 0 0.25em;
+	width: 100%;
+	color: @grey;
+	font-weight: bold;
+	font-size: 70.25%;
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+    position: absolute;
+	bottom: 0;
+	left: 0;
+	height: calc(100% - 1em);
+	text-align: left;
+	pointer-events: none;
+}
+
+.text-input-label::before,
+.text-input-label::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: calc(100% - 10px);
+	border-bottom: 1px solid @white-dark;
+}
+
+.text-input-label::after {
+	margin-top: 2px;
+	border-bottom: 4px solid @red;
+	-webkit-transform: translate3d(-100%, 0, 0);
+	transform: translate3d(-100%, 0, 0);
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+}
+
+.text-input-label-content {
+	position: absolute;
+	display: block;
+	padding: 1.6em 0;
+	width: 100%;
+}
+
+.text-input-field:focus + .text-input-label::after,
+.input--filled .text-input-label::after {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.text-input-field:focus + .text-input-label .text-input-label-content,
+.text-input--filled .text-input-label-content {
+	-webkit-animation: text-input 0.3s forwards;
+	animation: text-input 0.3s forwards;
+}
+
+.text-input-blue > .text-input-label::after {
+	border-bottom: 4px solid @blue;
+}
+
+.text-input-green > .text-input-label::after {
+	border-bottom: 4px solid @green;
+}

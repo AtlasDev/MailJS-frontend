@@ -1,0 +1,28 @@
+@import "variables.less";
+
+.sidebar-container {
+    position: absolute;
+    vertical-align: middle;
+    width: 100vw;
+    height: 100%;
+    background-color: @black-dark;
+    transition: width 2.5s;
+    transition-timing-function: ease;
+}
+.loaded .sidebar-container {
+    width: 13vw;
+}
+.sidebar img {
+    border-radius: 99999px;
+    display: block;
+    margin: auto;
+    width: 15vw;
+    height: 15vw;
+    transition: height 2s, width 2s, margin-top 2s;
+    margin-top: 15vh;
+}
+.loaded .sidebar img {
+    width: 5vw;
+    height: 5vw;
+    margin-top: 3vh;
+}
