@@ -7,6 +7,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks("grunt-modernizr");
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -52,6 +53,7 @@ module.exports = function (grunt) {
                 files: {
                     'dist/app.min.js': [
                         'src/js/external/angular.js',
+	                    'src/js/external/modernizr.js',
                         'src/js/**/*.js'
                     ]
                 }
@@ -60,7 +62,7 @@ module.exports = function (grunt) {
         watch: {
             all: {
                 files: [
-                    '**/*{.less,.js}',
+                    '**/*',
                     '!dist/*'
                 ],
                 tasks: [
@@ -69,7 +71,40 @@ module.exports = function (grunt) {
                     'concat:public'
                 ]
             },
-        }
+        },
+		modernizr: {
+			build: {
+				"crawl": false,
+				"customTests": [],
+				"dest": "src/js/external/modernizr.js",
+				"tests": [
+					"cookies",
+					"cryptography",
+					"fullscreen",
+					"json",
+					"notification",
+					"websockets",
+					"mediaqueries",
+					"rgba",
+					"csstransforms",
+					"csstransitions",
+					"cssvhunit",
+					"cssvwunit",
+					"es5",
+					"promises",
+					"filesystem",
+					"xhrresponsetypejson",
+					"datauri",
+					[
+						"atobbtoa"
+					]
+				],
+				"options": [
+					"setClasses"
+				],
+				"uglify": false
+			}
+		}
     });
 
     grunt.registerTask('dev', 'watch:all');
@@ -77,6 +112,7 @@ module.exports = function (grunt) {
         'jshint:all'
     ]);
     grunt.registerTask('build', [
+		'modernizr:build',
         'jshint:all',
         'less:build',
         'concat:public',

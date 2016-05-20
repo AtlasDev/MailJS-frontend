@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="MailJS" ng-controller="mainCtrl">
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" ng-app="MailJS" ng-controller="mainCtrl"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,14 +11,46 @@
         <link href="dist/style.min.css" rel="stylesheet">
     </head>
     <body>
-        <div class="sidebar-container">
-            <div class="sidebar">
-                <img src="http://placekitten.com/150/150" alt="Placeholder" />
+		<div id="overlay">
+			<div id="overlay-left"></div>
+			<div id="overlay-right"></div>
+			<div id="overlay-content">
+				<div id="featureDetection">
+					<noscript>
+						<h2>Oh no! :/</h2>
+						<p>
+							Your browser does not seem to support JavaScript.
+							Please try a modern browser like <a href="https://vivaldi.com/" target="_BLANK">Vivaldi</a> or
+							<a href="https://www.mozilla.org/en-US/firefox/new/" target="_BLANK">Firefox</a>.
+						</p>
+					</noscript>
+					<div ng-show="!fullSupport" class="ng-hide">
+						<h2>Oh no! :/</h2>
+						<p>You are missing the following browser feature(s):</p>
+						<ul ng-repeat="feature in missingSupport">
+							<li>{{feature}}</li>
+						</ul>
+						<p>
+							Please try a modern browser like <a href="https://vivaldi.com/" target="_BLANK">Vivaldi</a> or
+							<a href="https://www.mozilla.org/en-US/firefox/new/" target="_BLANK">Firefox</a>.
+						</p>
+					</div>
+				</div>
+				<div id="login" class="overlay-inactive">
+					Some texts
+				</div>
+			</div>
+		</div>
+        <div id="sidebar-container">
+			<img src="http://placekitten.com/150/150" alt="Placeholder" />
+			<h2 class="fadeIn">Dany Sluijk van de weg</h2>
+            <div id="sidebar">
+				list stuff
             </div>
         </div>
-        <div class="content">
+        <div id="content">
 
         </div>
-        <script src="dist/app.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="dist/app.min.js" charset="utf-8"></script>
     </body>
 </html>

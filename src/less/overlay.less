@@ -1,0 +1,51 @@
+@import "variables.less";
+
+#overlay-right, #overlay-left {
+	position: fixed;
+	width: 50%;
+	z-index: 999999;
+	height: 100%;
+    background-color: @black-dark;
+    transition: margin-left 1.5s;
+    transition-timing-function: ease;
+}
+
+#overlay-right {
+	margin-left: 50%;
+}
+
+.loaded #overlay-right {
+	margin-left: 100%;
+}
+
+.loaded #overlay-left {
+	margin-left: -50%;
+}
+
+#overlay-content {
+	vertical-align: center;
+	position: absolute;
+	z-index: 9999999;
+	width: 100%;
+	top: 40%;
+	left: 50%;
+	width: 500px;
+	height: 500px;
+	margin-top: -250px;
+	margin-left: -250px;
+	color: @white;
+}
+
+#overlay-content h2 {
+	color: @grey;
+	font-size: 2em;
+}
+
+
+#overlay-content a {
+	color: @white-dark;
+}
+
+.overlay-inactive {
+    display: none;
+}
